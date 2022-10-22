@@ -29,8 +29,6 @@ body {
     background-color: white;
 }
 .container div {
-    width: 24px;
-    height: 24px;
     border: 1px solid rgb(224, 224, 224);
 }
 

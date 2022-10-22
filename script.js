@@ -1,4 +1,4 @@
-function rnadom(start, end) {
+function random(start, end) {
     return Math.floor((Math.random() * (end - start))) + start;
 }
 
@@ -17,7 +17,17 @@ function makeGrid(num=16){
 function colorGrid(){
     let divs = document.querySelectorAll('.inside');
     divs.forEach(div => div.addEventListener('mouseenter', (e) => {
-        e.target.style.cssText += "background-color: black;";
+        let val = e.target.style.backgroundColor
+        if (val === ''){
+            val1 = random(0, 255);
+            val2 = random(0, 255);
+            val3 = random(0, 255);
+            e.target.style.cssText += `background-color: rgb(${val1}, ${val2}, ${val3});`;
+        }
+        else {
+            val = val.slice(4, -1).split(",");
+            e.target.style.backgroundColor = `rgb(${val[0] / 1.1}, ${val[1] / 1.1}, ${val[2] / 1.1})`;
+        }
     }));
 }
 
